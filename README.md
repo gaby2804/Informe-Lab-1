@@ -16,11 +16,87 @@ Instructions:
 
 This algorithm was created to process, contaminate and analyze the EMG signal obtained on the page of the article on Gesture Recognition and Biometrics ElectroMyogram (GRABMyo), in which the electromyographic signal of the muscles of the forearm and wrist is acquired.
 
-
+imagen
 
 The code begins by defining the file path through the wfdb library, to achieve the extraction and selection of the signal with its sampling frequency with:
 
 ```pitón
-nombres
+signal = record.p_signal  
+fs = record.fs  
+
+if signal.ndim > 1:
+    signal = signal[:, 0]  
 ```
 
+To carry out the descriptive statistical calculations of the signal, the following lines were programmed:
+
+```pitón
+n = len(signal)  
+media_manual = sum(signal) / n  
+varianza_manual = sum((x - media_manual) ** 2 for x in signal) / (n - 1)  
+desviacion_manual = varianza_manual ** 0.5  
+coef_variacion_manual = desviacion_manual / media_manual  
+```
+imagen
+
+To display the histogram and probability function observed in the image, the following were used:
+
+```pitón
+hist, bins = np.histogram(signal, bins=30, densens=True)  
+pdf = hist  
+bin_centers = (bins[:-1] + bins[1:]) / 2
+```
+In which the probability function is the same histogram but normalized, thanks to the bins function the edges of each bin are given and with bin_centers the central calculations of each of them, with the positions on the x axis.
+
+When contaminating the signal with the three types of noise (Gaussian, impulsive and artifact type), in the first case with Gaussian noise the signal is contaminated by adding a random noise with a normal distribution throughout the signal with noise = np.random.normal(loc=0, scale=np.std(signal) * 0.01, size=signal.shape) and signal_noise = signal + noise adds the noise to the signal base.
+
+imagen
+
+With impulse noise, random peaks are generated in the same signal, to eventually simulate interference.
+
+```pitón
+proporcion_ruido = 0.05  
+num_impulsos = int(len(signal) * proporcion_ruido)
+amplitud_impulsos = np.max(signal) * 0.001
+indices_impulsivos = np.random.choice(len(signal), num_impulsos, replace=False)
+ruido_impulsivo = np.zeros_like(signal)
+ruido_impulsivo[indices_impulsivos] = np.random.choice([-amplitud_impulsos, amplitud_impulsos], size=num_impulsos)
+signal_ruido = signal + ruido_impulsivo
+```
+imagen
+
+There we define that 5% of the signal will be affected by this type of noise, in which it will randomly take specific positions where said impulses occurred, in this way negative and positive values ​​are assigned to each generated impulse added to the signal.
+
+In artifact noise, what enters are two types of interference, the first is a 50 Hz interference where an electrical wave is simulated and the second is randomly selected artifacts with a very low amplitude.
+
+```pitón
+f_interferencia = 50  
+t = np.arange(len(signal)) / fs 
+interferencia = 0.000001 * np.max(signal) * np.sin(2 * np.pi * f_interferencia * t)
+```
+
+imagen
+
+Finally, in each of the different noises, the SNR calculation was carried out to measure the impact that each noise had on the analyzed signal, this indicates how strong, intense and high the noise is compared to the signal, with the following corresponding formulas:
+
+```pitón
+potencia_signal = np.mean(signal**2)
+potencia_ruido = np.mean(ruido**2)
+SNR = 10 * np.log10(potencia_signal / potencia_ruido)
+
+potencia_signal = np.mean(signal_ruido**2)
+potencia_ruido = np.mean(ruido_impulsivo**2)
+SNR = 10 * np.log10(potencia_signal / potencia_ruido)
+
+potencia_signal = np.mean(signal_ruido**2)
+potencia_ruido = (np.mean(ruido_artefacto**2)/2)
+SNR = 10 * np.log10(potencia_signal / potencia_ruido)
+```
+In this way the following results were obtained:
+
+imagen
+
+Requirements:
+- python 3.9
+- matplotlib
+- Wfdb Bookstore
