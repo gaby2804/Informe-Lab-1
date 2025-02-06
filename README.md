@@ -75,8 +75,7 @@ f_interferencia = 50
 t = np.arange(len(signal)) / fs 
 interferencia = 0.000001 * np.max(signal) * np.sin(2 * np.pi * f_interferencia * t)
 ```
-
-imagen
+![](https://github.com/gaby2804/Informe-Lab-1/blob/main/ruido%20artefacto.jpg)
 
 Finally, in each of the different noises, the SNR calculation was carried out to measure the impact that each noise had on the analyzed signal, this indicates how strong, intense and high the noise is compared to the signal, with the following corresponding formulas:
 
@@ -95,7 +94,7 @@ SNR = 10 * np.log10(potencia_signal / potencia_ruido)
 ```
 In this way the following results were obtained:
 
-imagen
+![](https://github.com/gaby2804/Informe-Lab-1/blob/main/ruido%20artefacto.jpg)
 
 Requirements:
 - python 3.9
