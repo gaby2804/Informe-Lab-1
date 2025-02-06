@@ -94,7 +94,7 @@ SNR = 10 * np.log10(potencia_signal / potencia_ruido)
 ```
 In this way the following results were obtained:
 
-![](https://github.com/gaby2804/Informe-Lab-1/blob/main/ruido%20artefacto.jpg)
+![](https://github.com/gaby2804/Informe-Lab-1/blob/main/WhatsApp%20Image%202025-02-05%20at%208.36.43%20PM.jpeg)
 
 Requirements:
 - python 3.9
