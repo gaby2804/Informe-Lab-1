@@ -1,6 +1,6 @@
 # Report-Lab-1 Processing of an EMG signal contaminated by different noises
 
-##Introduction
+## Description
 
 Gaussian noise is a statistical noise whose probability density function is a normal function or Gaussian bell, often used to model random variations that occur in real-life data. For its part, Artifact noise refers to interference or distortions that affect the typical shape of the signal studied (EMG in this case), it can manifest itself as peaks, oscillations or sudden changes in the amplitude of the signal, in some extreme cases, the artifact can be so strong that it completely hides the signal studied. In this context, impulse noise consists of abrupt and short-duration disturbances that are superimposed on the original signal, usually appearing randomly and without any specific pattern.
 
