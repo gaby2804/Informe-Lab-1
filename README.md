@@ -16,7 +16,7 @@ Instructions:
 
 This algorithm was created to process, contaminate and analyze the EMG signal obtained on the page of the article on Gesture Recognition and Biometrics ElectroMyogram (GRABMyo), in which the electromyographic signal of the muscles of the forearm and wrist is acquired.
 
-![](https://github.com/gaby2804/Informe-Lab-1/blob/main/WhatsApp%20Image%202025-02-05%20at%208.36.43%20PM.jpeg)
+![](https://github.com/gaby2804/Informe-Lab-1/blob/main/se%C3%B1al%20emg.jpg)
 
 
 The code begins by defining the file path through the wfdb library, to achieve the extraction and selection of the signal with its sampling frequency with:
@@ -38,7 +38,7 @@ varianza_manual = sum((x - media_manual) ** 2 for x in signal) / (n - 1)
 desviacion_manual = varianza_manual ** 0.5  
 coef_variacion_manual = desviacion_manual / media_manual  
 ```
-imagen
+![](https://github.com/gaby2804/Informe-Lab-1/blob/main/se%C3%B1al%20emg.jpg)
 
 To display the histogram and probability function observed in the image, the following were used:
 
