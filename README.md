@@ -64,7 +64,7 @@ ruido_impulsivo = np.zeros_like(signal)
 ruido_impulsivo[indices_impulsivos] = np.random.choice([-amplitud_impulsos, amplitud_impulsos], size=num_impulsos)
 signal_ruido = signal + ruido_impulsivo
 ```
-![](https://github.com/gaby2804/Informe-Lab-1/blob/main/ruidogaussiano.jpg)
+![](https://github.com/gaby2804/Informe-Lab-1/blob/main/ruido%20impulsivo.jpg)
 
 There we define that 5% of the signal will be affected by this type of noise, in which it will randomly take specific positions where said impulses occurred, in this way negative and positive values ​​are assigned to each generated impulse added to the signal.
 
