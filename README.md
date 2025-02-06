@@ -51,7 +51,7 @@ In which the probability function is the same histogram but normalized, thanks t
 
 When contaminating the signal with the three types of noise (Gaussian, impulsive and artifact type), in the first case with Gaussian noise the signal is contaminated by adding a random noise with a normal distribution throughout the signal with noise = np.random.normal(loc=0, scale=np.std(signal) * 0.01, size=signal.shape) and signal_noise = signal + noise adds the noise to the signal base.
 
-imagen
+![](https://github.com/gaby2804/Informe-Lab-1/blob/main/ruidogaussiano.jpg)
 
 With impulse noise, random peaks are generated in the same signal, to eventually simulate interference.
 
@@ -64,7 +64,7 @@ ruido_impulsivo = np.zeros_like(signal)
 ruido_impulsivo[indices_impulsivos] = np.random.choice([-amplitud_impulsos, amplitud_impulsos], size=num_impulsos)
 signal_ruido = signal + ruido_impulsivo
 ```
-imagen
+![](https://github.com/gaby2804/Informe-Lab-1/blob/main/ruidogaussiano.jpg)
 
 There we define that 5% of the signal will be affected by this type of noise, in which it will randomly take specific positions where said impulses occurred, in this way negative and positive values ​​are assigned to each generated impulse added to the signal.
 
