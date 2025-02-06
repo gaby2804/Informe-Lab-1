@@ -38,7 +38,7 @@ varianza_manual = sum((x - media_manual) ** 2 for x in signal) / (n - 1)
 desviacion_manual = varianza_manual ** 0.5  
 coef_variacion_manual = desviacion_manual / media_manual  
 ```
-![](https://github.com/gaby2804/Informe-Lab-1/blob/main/se%C3%B1al%20emg.jpg)
+![](https://github.com/gaby2804/Informe-Lab-1/blob/main/histograma%20y%20funcion.jpg)
 
 To display the histogram and probability function observed in the image, the following were used:
 
