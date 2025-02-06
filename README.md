@@ -16,7 +16,7 @@ Instructions:
 
 This algorithm was created to process, contaminate and analyze the EMG signal obtained on the page of the article on Gesture Recognition and Biometrics ElectroMyogram (GRABMyo), in which the electromyographic signal of the muscles of the forearm and wrist is acquired.
 
-![imagen] 
+![imagen] WhatsApp Image 2025-02-05 at 8.36.43 PM.jpeg
 
 
 The code begins by defining the file path through the wfdb library, to achieve the extraction and selection of the signal with its sampling frequency with:
